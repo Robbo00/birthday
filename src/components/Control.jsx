@@ -5,15 +5,15 @@ const Control = () => {
     
   return (
     <div className='control'>
-      <button>Upcoming</button>
+      <h2 className='controlHeader'>Upcoming list</h2>
+
+      <div className='switch'>
+<button className='active'>Upcoming</button>
 
       <button>Today</button>
 
       <button>This month</button>
-
-      <button></button>
       
-      <div className='month'>
           <select name="" id="">
         <option value="">January</option>
         <option value="">February</option>
@@ -29,6 +29,7 @@ const Control = () => {
         <option value="">December</option>
       </select>
       </div>
+      
     
     </div>
   )
