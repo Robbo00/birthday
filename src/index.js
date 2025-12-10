@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from './App'
-import Control from "./components/Control";
 import "./index.css";
 import Card from "./components/card";
 import Layout from "./layout";
