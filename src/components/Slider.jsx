@@ -47,9 +47,9 @@ const Slider = ({filter}) => {
         </div>
 
         {
-            items.map((x) => {
+            items.map((x, index) => {
                 return(
-                    <button onClick={() => {click(x)}} className={activeItem === x ? 'active' : ''}>{x}</button>
+                    <button key={index} onClick={() => {click(x)}} className={activeItem === x ? 'active' : ''}>{x}</button>
                 )
             })
         }
