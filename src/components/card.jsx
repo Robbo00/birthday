@@ -19,7 +19,7 @@ const Card = ({person}) => {
           <div onMouseEnter={() => setHover('hover')} onMouseLeave={() => setHover('')} key={person.id}>
             <img
               className={`pfp ${hover}`}
-              src="https://cdna.artstation.com/p/assets/images/images/084/124/296/large/matthew-blank-profile-photo-1.jpg?1737590038"
+              src={person.url}
               alt=""
             />
             <div className="text">

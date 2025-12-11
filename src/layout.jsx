@@ -8,8 +8,8 @@ import { format, isPast } from "date-fns";
 import { useState } from "react";
 
 const Layout = () => {
-  const t = '12/05'
-  const x = '12/04'
+  const t = '11/05'
+  const x = '11/04'
   console.log(isPast(t, 'MM/dd', x)) 
 
   const inf = data;
