@@ -4,13 +4,11 @@ import Control from "./components/Control";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Card from "./components/card";
-import { format, isPast } from "date-fns";
+import { format, getDate, getDay, isPast } from "date-fns";
 import { useState } from "react";
+import { getMonth } from "date-fns/fp";
 
 const Layout = () => {
-  const t = '11/05'
-  const x = '11/04'
-  console.log(isPast(t, 'MM/dd', x)) 
 
   const inf = data;
   let active = inf.filter((d) => {
@@ -25,14 +23,13 @@ const Layout = () => {
   const [filter, setFilter] = useState(active);
 
   const laddered = (l) => {
-    const curr = new Date();
+    let curr = new Date();
 
     if (l === "This month") {
       const currMonth = format(curr, "MMM");
       active = inf.filter((p) => {
         const personBirthday = new Date(p.birthday);
         const personMonth = format(personBirthday, "MMM");
-
         if (personMonth === currMonth) {
           return p;
         }
@@ -50,7 +47,7 @@ const Layout = () => {
         const personDay = format(personBirthday, "dd");
         const personDate = personMonth + personDay;
 
-        if (exactDate == personDate) {
+        if (exactDate === personDate) {
           return p;
         }
       });
@@ -61,16 +58,21 @@ const Layout = () => {
     }
 
     if (l === "Upcoming") {
-      active = inf.filter((d) => {
-        const compare = new Date(d.birthday);
-        const test = format(curr, 'MM/dd')
-        const birth = format(compare, 'MM/dd')
-        console.log(birth)
-        if (isPast(curr, birth)) {
-          return;
+      const currMonth = getMonth(curr)
+      const currDay = getMonth(curr)
+
+      active = inf.filter((person) => {
+        const birthday = new Date(person.birthday)
+        const birthdayMonth = getMonth(birthday)
+        const birthdayDay = getDate(birthday)
+        if(currMonth <= birthdayMonth){
+          if(currDay <= birthdayDay){
+            return person
+          }
         }
-        return d;
-      });
+
+          return 
+      })
     }
 
     setFilter(active);
@@ -91,5 +93,4 @@ const Layout = () => {
     </div>
   );
 };
-
 export default Layout;

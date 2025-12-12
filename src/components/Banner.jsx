@@ -4,21 +4,15 @@ import { closestTo, format, isPast } from "date-fns";
 
 const Banner = ({ info }) => {
   const now = new Date();
-  const forwards = data.filter((d) => {
-    const compare = new Date(d.birthday);
-    if (isPast(compare)) {
-      return;
-    }
-    return d;
-  });
+  
 
-  const dates = forwards.filter((p) => {
-    return p.birthday;
+  const dates = data.filter((p) => {
+    return new Date(p.birthday);
   });
 
   const closest = closestTo(now, dates);
-  console.log(closest);
-  console.log(dates);
+
+  console.log(closest)
 
   return (
     <div className="banner">
