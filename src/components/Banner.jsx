@@ -3,7 +3,7 @@ import data from "../data";
 import { closestTo,  getDate,  } from "date-fns";
 import { getMonth } from "date-fns/fp";
 
-const Banner = ({ info }) => {
+const Banner = () => {
   const now = new Date();
   
 

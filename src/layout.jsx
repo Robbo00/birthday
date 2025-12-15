@@ -4,19 +4,18 @@ import Control from "./components/Control";
 import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Card from "./components/card";
-import { format, getDate, getDay, isPast } from "date-fns";
+import { format, getDate, isPast } from "date-fns";
 import { useState } from "react";
 import { getMonth } from "date-fns/fp";
 
 const Layout = () => {
-
   const inf = data;
   let active = inf.filter((d) => {
     const compare = new Date(d.birthday);
-            const birth = format(compare, 'MM/dd')
+    const birth = format(compare, "MM/dd");
 
     if (isPast(birth)) {
-      return;
+      return null;
     }
     return d;
   });
@@ -33,6 +32,7 @@ const Layout = () => {
         if (personMonth === currMonth) {
           return p;
         }
+        return null;
       });
     }
 
@@ -50,6 +50,7 @@ const Layout = () => {
         if (exactDate === personDate) {
           return p;
         }
+        return null;
       });
     }
 
@@ -58,21 +59,21 @@ const Layout = () => {
     }
 
     if (l === "Upcoming") {
-      const currMonth = getMonth(curr)
-      const currDay = getMonth(curr)
+      const currMonth = getMonth(curr);
+      const currDay = getMonth(curr);
 
       active = inf.filter((person) => {
-        const birthday = new Date(person.birthday)
-        const birthdayMonth = getMonth(birthday)
-        const birthdayDay = getDate(birthday)
-        if(currMonth <= birthdayMonth){
-          if(currDay <= birthdayDay){
-            return person
+        const birthday = new Date(person.birthday);
+        const birthdayMonth = getMonth(birthday);
+        const birthdayDay = getDate(birthday);
+        if (currMonth <= birthdayMonth) {
+          if (currDay <= birthdayDay) {
+            return person;
           }
         }
 
-          return 
-      })
+        return null;
+      });
     }
 
     setFilter(active);
