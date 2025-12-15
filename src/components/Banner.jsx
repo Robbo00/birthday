@@ -1,6 +1,6 @@
 import React from "react";
 import data from "../data";
-import { closestTo, format, getDate, isPast } from "date-fns";
+import { closestTo,  getDate,  } from "date-fns";
 import { getMonth } from "date-fns/fp";
 
 const Banner = ({ info }) => {

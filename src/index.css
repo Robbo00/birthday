@@ -111,9 +111,7 @@ button:hover{
   margin: 1%;
 }
 
-.age{
-  
-}
+
 
 .nameHover{
   background: linear-gradient(to right, #9333EA, #DB2777);
@@ -250,8 +248,9 @@ input{
   border-radius: 2rem;
   border: none;
   border: solid .1rem;
-
 }
+
+
 
 /* button:hover{
   cursor: pointer;

@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 // import App from './App'
 import "./index.css";
-import Card from "./components/card";
 import Layout from "./layout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

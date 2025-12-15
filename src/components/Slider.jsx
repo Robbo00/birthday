@@ -15,6 +15,7 @@ const Slider = ({filter}) => {
         const activeElement = menuRef.current?.querySelector(`button.active`)
 
         if(activeElement) {
+            console.log(menuRef)
         const menuPosition = menuRef.current.getBoundingClientRect()
         const itemPosition = activeElement.getBoundingClientRect()
 
@@ -22,7 +23,7 @@ const Slider = ({filter}) => {
 
     setStyle({
         width:`${itemPosition.width}px`,
-        transform:`translateX(${space}px)`
+        transform:`translateX(${space}px)`,
 
 
     })
