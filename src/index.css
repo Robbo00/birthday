@@ -7,7 +7,7 @@ body{
   background-color: #FAF7FC;
 }
 
-h1{
+.title{
   font-weight: 700;
   background: linear-gradient(to right, #7C3BED, #DB2777);
   background-clip: text;
@@ -204,10 +204,15 @@ p{
 }
 
 .banner{
-  background: linear-gradient(135deg, #7c3bed, #4f46e5);
+  background: linear-gradient( 135deg, #7c3bed, #4f46e5);
   width: 99%;
   height: 46vh;
   border-radius: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 3%;
+  box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3),
+  0 8px 10px -6px rgba(99, 102, 241, 0.3);
 }
 
 .switch{
@@ -249,6 +254,30 @@ input{
   border: none;
   border: solid .1rem;
 }
+
+
+
+
+.bannerImg{
+  margin-left: 3%;
+  border: solid 2px white;
+}
+
+.banner-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p{
+  font-weight: 600;
+}
+
+.bannerName{
+  color: white;
+}
+
+
 
 
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import data from "./data";
 import Control from "./components/Control";
 import Header from "./components/Header";
@@ -6,19 +6,12 @@ import Banner from "./components/Banner";
 import Card from "./components/card";
 import { format, getDate, isPast } from "date-fns";
 import { useState } from "react";
-import { getMonth } from "date-fns/fp";
+import { getMonth } from "date-fns";
 
 const Layout = () => {
   const inf = data;
-  let active = inf.filter((d) => {
-    const compare = new Date(d.birthday);
-    const birth = format(compare, "MM/dd");
+  let active = [] 
 
-    if (isPast(birth)) {
-      return null;
-    }
-    return d;
-  });
   const [filter, setFilter] = useState(active);
 
   const laddered = (l) => {
@@ -59,25 +52,28 @@ const Layout = () => {
     }
 
     if (l === "Upcoming") {
-      const currMonth = getMonth(curr);
-      const currDay = getMonth(curr);
 
       active = inf.filter((person) => {
-        const birthday = new Date(person.birthday);
-        const birthdayMonth = getMonth(birthday);
-        const birthdayDay = getDate(birthday);
-        if (currMonth <= birthdayMonth) {
-          if (currDay <= birthdayDay) {
-            return person;
-          }
-        }
+        const birthday = new Date(person.birthday)
 
-        return null;
-      });
+      const thisBirthday = new Date(
+        curr.getFullYear(),
+        birthday.getMonth(),
+        birthday.getDate()
+      )
+
+      return !isPast(thisBirthday)
+      })
+      
     }
 
     setFilter(active);
   };
+
+  useEffect(() => {
+    laddered('Upcoming')
+  }, [])
+
 
   return (
     <div className="centered">
