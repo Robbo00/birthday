@@ -1,7 +1,8 @@
 import React from "react";
 import data from "../data";
-import { closestTo,  getDate,  } from "date-fns";
+import { closestTo,  format,  getDate,  } from "date-fns";
 import { getMonth } from "date-fns/fp";
+
 
 const Banner = () => {
   const now = new Date();
@@ -24,14 +25,16 @@ const Banner = () => {
 
     closest = data[closest]
     console.log(closest)
-  
+    const month = format(new Date(closest.birthday), 'MMM') 
+    const day = format(new Date(closest.birthday), 'dd')
 
   return (
     <div className="banner">
+      
       <img className="bannerImg" src={closest.url} alt="" />
       <div className="banner-content">
         <h1 className="bannerName">🎂 {closest.first_name}</h1>
-              <p>{closest.birthday}</p>
+              <p>Tiffie has the next birthday on {month +' ' + day}</p>
       </div>
               
 

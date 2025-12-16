@@ -213,6 +213,7 @@ p{
   gap: 3%;
   box-shadow: 0 20px 25px -5px rgba(99, 102, 241, 0.3),
   0 8px 10px -6px rgba(99, 102, 241, 0.3);
+  position: relative;
 }
 
 .switch{
@@ -266,7 +267,6 @@ input{
 .banner-content{
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 p{
@@ -275,6 +275,14 @@ p{
 
 .bannerName{
   color: white;
+}
+
+.bannerCont{
+  display: flex;
+  flex-direction: column;
+width: inherit;
+height: inherit;
+position: absolute;
 }
 
 
